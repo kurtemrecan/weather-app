@@ -30,12 +30,13 @@ const App = () => {
       })
       .finally(() => setLoading(false)); //istek tamamlanınca loadingi durdur
   };
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold text-blue-600 mb-8">
         Hava Durumu Uygulaması
       </h1>
+      {loading && <p className="text-xl text-gray-600">Loading...</p>}
+      {error && <p className="text-xl text-gray-600">{error}</p>}
     </div>
   );
 };
