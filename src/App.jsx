@@ -14,7 +14,7 @@ const App = () => {
     setError(''); // önceki hataı sıfırla
 
     fetch(
-      '`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`'
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     )
       .then((res) => res.json()) //yanıtı jsona dönüştürelim
       .then((data) => {
@@ -35,8 +35,10 @@ const App = () => {
       <h1 className="text-4xl font-bold text-blue-600 mb-8">
         Hava Durumu Uygulaması
       </h1>
+      <Search city={city} setCity={setCity} fetchWeather={fetchWeather} />
       {loading && <p className="text-xl text-gray-600">Loading...</p>}
-      {error && <p className="text-xl text-gray-600">{error}</p>}
+      {error && <p className="text-xl text-red-600">{error}</p>}
+      <Weather data={weatherData} />
     </div>
   );
 };
